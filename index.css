@@ -2,27 +2,51 @@ body, .vue-app {
     background-color: #5f9f9f;
 }
 
-.search-bar-btn{
+.search-bar-btn {
     margin-left: 0.5rem;
 }
 
-#queryResults {
-    margin-bottom: 0.25rem;
+.searchBar {
+    width: 35rem;
 }
 
-.form {
-    margin-bottom: 0.5rem;
+.search-btn {
+    display: flex;
+    justify-content: center;
 }
 
-.card {
+/*Search results in list will show on top of everything.*/
+.searchResults {
+    position: absolute;
+    width: 35rem;
+    top: 5.5rem;
+    z-index: 1;
+    border-bottom-right-radius: 5px;
+}
+
+/*To remove the default styling for list bullet points.*/
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
     background-color: #a6de72;
     padding: 0.5rem;
     cursor: pointer;
+    list-style-type: none;
 }
 
-#queryResults:hover {
+/*Bold on Hover of particular list element. */
+li:hover {
     color: black;
     font-weight: bold;
+}
+
+/*Rounded bottom corners. */
+li:nth-of-type(5) {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 #quotes {
@@ -30,6 +54,7 @@ body, .vue-app {
     color: black;
     margin-bottom: 0.25em;
 }
+
 
 button.close {
     font-size: 1.15rem;
@@ -39,19 +64,20 @@ button.close {
     border: 0;
 }
 
-td{
+td {
     height: 3rem;
 }
-tr{
+
+tr {
     text-align: center;
     margin-bottom: 0.75rem;
 }
 
-.stock-symbol{
+.stock-symbol {
     color: blue;
-    padding-left: 0.5rem ;
+    padding-left: 0.5rem;
 }
 
-.close-table{
+.close-column {
     width: 2rem;
 }

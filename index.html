@@ -10,44 +10,38 @@
 <body>
 <div id="vue-app">
     <div class="container mt-5">
-        <div class="row">
+
+        <div class="search-btn">
 
             <!--Search Bar-->
-            <form @input.prevent="getStock" class="d-flex col-md-6 m-auto">
+            <form @input.prevent="getStock">
 
-                <input class=" form-control"
-                       id="querySearch"
+                <input class="searchBar form-control m-auto"
                        type="text"
                        minlength="1" required
                        maxlength="20"
                        placeholder="Search for companies or by their stock symbol, example: AAPL"
                        v-model.trim="query">
-                <button
-                        type="submit"
-                        class="search-bar-btn btn-sm btn-primary shadow bg-blue"
-                        @click.prevent="getStock">
-                    Search
-                </button>
+
+                <!-- Search Results in a List. -->
+                <ul class="searchResults shadow">
+                    <li v-show="query.length > 0" v-for="r in result"
+                        @click='getQuote(r); query=""; result=""'>
+                        ${ r.displaySymbol }$ <br>
+                        <small>${ r.description.toLowerCase().replace(/(^\w|\s\w)/g, m => m.toUpperCase())}$</small>
+                    </li>
+                </ul>
             </form>
 
-            <!-- Search results. -->
-            <div v-for="r in result" class="d-flex row-md-6" id="queryResults">
-                <div class="card col-md-6 m-auto shadow"
-                     v-show="query.length > 0"
-                     @click='getQuote(r); query=""; result=""'>
-                    <!-- Clear the search query, query results, and get the price of the stock symbol clicked by user.-->
+            <!--Search Submit Button-->
+            <button
+                    type="submit"
+                    class="search-bar-btn btn-sm btn-primary shadow bg-blue"
+                    @click.prevent="getStock">
+                Search
+            </button>
 
-                    <div class="card-title">
-                        ${ r.displaySymbol }$
-                    </div>
 
-                    <div class="card-text">
-                        <small>${ r.description.toLowerCase().replace(/(^\w|\s\w)/g, m => m.toUpperCase())}$</small>
-                        <!--Results from API were all in uppercase, added REGEX to only capitalize first letter of word.-->
-                    </div>
-
-                </div>
-            </div>
         </div>
 
         <!--  Stock price and time. -->
@@ -57,7 +51,7 @@
                 <th>Current Price</th>
                 <th>Previous Close</th>
                 <th>Last Updated</th>
-                <th class="close-table"></th>
+                <th class="close-column"></th>
             </tr>
 
             <tr class="stocksQuote" @mouseover="mouseOver" @mouseleave="mouseLeave" v-for="q in quotes">
