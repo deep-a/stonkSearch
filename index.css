@@ -1,0 +1,57 @@
+body, .vue-app {
+    background-color: #5f9f9f;
+}
+
+.search-bar-btn{
+    margin-left: 0.5rem;
+}
+
+#queryResults {
+    margin-bottom: 0.25rem;
+}
+
+.form {
+    margin-bottom: 0.5rem;
+}
+
+.card {
+    background-color: #a6de72;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+#queryResults:hover {
+    color: black;
+    font-weight: bold;
+}
+
+#quotes {
+    background-color: lightgreen;
+    color: black;
+    margin-bottom: 0.25em;
+}
+
+button.close {
+    font-size: 1.15rem;
+    color: #7a7979;
+    padding: 0;
+    background: 0 0;
+    border: 0;
+}
+
+td{
+    height: 3rem;
+}
+tr{
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+.stock-symbol{
+    color: blue;
+    padding-left: 0.5rem ;
+}
+
+.close-table{
+    width: 2rem;
+}
